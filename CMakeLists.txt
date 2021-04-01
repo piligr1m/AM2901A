@@ -18,8 +18,8 @@ if (BUILD_TESTING)
 endif()
 
 if (COVERAGE)
-    target_compile_options(tests PRIVATE --coverage)
-    target_link_libraries(tests PRIVATE --coverage)
+    target_compile_options(${CMAKE_CURRENT_SOURCE_DIR}/tests PRIVATE --coverage)
+    target_link_libraries(${CMAKE_CURRENT_SOURCE_DIR}/tests PRIVATE --coverage)
 endif()
 
 install(TARGETS asm_am2901a DESTINATION bin)
