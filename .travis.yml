@@ -9,6 +9,7 @@ addons:
     packages:
       - cmake
       - cmake-data
+      - g++-10
       
 before_install:
   - pip install --user cpp-coveralls
