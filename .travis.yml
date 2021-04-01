@@ -15,7 +15,7 @@ before_install:
   - pip install --user cpp-coveralls
 
 script:
-  - cmake -H. -B_build -DBUILD_TESTING=ON -DCOVERAGE=1 .
+  - cmake -H. -B_build -DBUILD_TESTING=ON -DCOVERAGE=1
   - cmake --build _build --target asm_test
   - cd _build && ctest
   
