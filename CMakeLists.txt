@@ -20,7 +20,7 @@ if (BUILD_TESTING)
 endif()
 
 find_package (Threads)
-target_link_libraries(third-party/gtest ${CMAKE_THREAD_LIBS_INIT})
+target_link_libraries(gtest ${CMAKE_THREAD_LIBS_INIT})
 
 if (COVERAGE)
     add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/tests)
