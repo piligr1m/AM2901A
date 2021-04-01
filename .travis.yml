@@ -8,8 +8,14 @@ addons:
     packages:
       - cmake
       - cmake-data
+      
+before_install:
+  - pip install --user cpp-coveralls
 
 script:
-  - cmake -H. -B_build -DBUILD_TESTING=ON
+  - cmake -H. -B_build -DBUILD_TESTING=ON -DCOVERAGE=1 .
   - cmake --build _build --target asm_test
   - cd _build && ctest
+  
+after_success:
+  - coveralls --root . -E ".*gtest.*" -E ".*CMakeFiles.*
