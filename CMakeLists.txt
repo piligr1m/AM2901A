@@ -13,7 +13,7 @@ SET(COVERAGE OFF CACHE BOOL "Coverage")
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/AM2901A)
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/AM2901A_ASM)
 
-if (BUILD_TESTING && COVERAGE)
+if (BUILD_TESTING)
 	find_package (Threads)
 	add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/tests)
 	add_subdirectory(third-party/gtest)
