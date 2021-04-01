@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/htmlgod/AM2901A.svg?branch=main)](https://travis-ci.com/htmlgod/AM2901A)
+
 
 # AM2901A
 AMD AM2901A CPU emulator
