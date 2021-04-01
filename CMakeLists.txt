@@ -21,6 +21,7 @@ if (BUILD_TESTING)
 endif()
 
 if (COVERAGE)
+    add_subdirectory(third-party/gtest)
     target_compile_options(tests PRIVATE --coverage)
     target_link_libraries(tests PRIVATE --coverage)
 endif()
