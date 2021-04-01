@@ -13,8 +13,6 @@ SET(COVERAGE OFF CACHE BOOL "Coverage")
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/AM2901A)
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/AM2901A_ASM)
 
-target_link_libraries(${CMAKE_CURRENT_SOURCE_DIR}/third-party ${CMAKE_THREAD_LIBS_INIT})
-
 if (BUILD_TESTING && COVERAGE)
 	find_package (Threads)
 	add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/tests)
