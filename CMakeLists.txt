@@ -13,19 +13,14 @@ SET(COVERAGE OFF CACHE BOOL "Coverage")
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/AM2901A)
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/AM2901A_ASM)
 
+find_package (Threads)
+target_link_libraries(gltest ${CMAKE_THREAD_LIBS_INIT})
 
-if (BUILD_TESTING)
+if (BUILD_TESTING && COVERAGE)
 	add_subdirectory(third-party/gtest)
 	add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/tests)
-endif()
-
-find_package (Threads)
-target_link_libraries(gtest ${CMAKE_THREAD_LIBS_INIT})
-
-if (COVERAGE)
-    add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/tests)
-    target_compile_options(${CMAKE_CURRENT_SOURCE_DIR}/tests PRIVATE --coverage)
-    target_link_libraries(${CMAKE_CURRENT_SOURCE_DIR}/tests PRIVATE --coverage)
+	target_compile_options(${CMAKE_CURRENT_SOURCE_DIR}/tests PRIVATE --coverage)
+        target_link_libraries(${CMAKE_CURRENT_SOURCE_DIR}/tests PRIVATE --coverage)
 endif()
 
 install(TARGETS asm_am2901a DESTINATION bin)
